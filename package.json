@@ -1,0 +1,21 @@
+{
+  "name": "uthers-hand",
+  "private": true,
+  "version": "0.1.0",
+  "description": "A WoW-themed web UI for the Hermes agent — Uther's Hand.",
+  "workspaces": [
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "dev": "concurrently -k -n server,client -c yellow,blue \"npm:dev:server\" \"npm:dev:client\"",
+    "dev:server": "npm --workspace server run dev",
+    "dev:client": "npm --workspace client run dev",
+    "build": "npm --workspace client run build",
+    "start": "npm --workspace server run start",
+    "lint": "npm --workspace client run lint --if-present"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}
